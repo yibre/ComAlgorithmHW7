@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import csv
 import random
 
@@ -5,15 +6,25 @@ import random
 def minnum(arr, target):
     # initialize
     D = [0 for i in range(target + 1)]
-
     # your code goes in here
 
+    for i in range(1, target + 1):
+        D[i] = 9999 # 목표 액수보다 더 큰 금액으로 설정
+
+    coin = [0]
+    for i in range(0, len(arr)):
+        coin.append(arr[i])
+
+    for i in range(1, len(coin)):
+        if coin[i] <= target:
+            for j in range(coin[i], target+1):
+                D[j] = min(D[j], D[j-coin[i]]+1)
+            print(D)
     # return
     if (D[target] == -1) or (D[target] == 9999):
         return -1
     else:
         return D[target]
-
 
 def test_minnum():
     # import csv

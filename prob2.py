@@ -18,16 +18,6 @@ def eat_dinner(foods,stomach):
         # after i th food eat, cur stomach value change
     return sum_tastiness
 
-def eat_dinner2 (foods,stomach):
-    sum_tastiness = 0
-    cur_stomach = stomach
-    for i in range(len(foods)):
-        while cur_stomach > 0 and foods[i][2] != 0:
-                cur_stomach = cur_stomach - 1
-                sum_tastiness += foods[i][1]
-                foods[i][2] -= 1
-    return sum_tastiness
-
 def test_eat_dinner():
     # import csv file
     f = open('prob2_input.csv', 'r')

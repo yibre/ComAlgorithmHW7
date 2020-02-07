@@ -36,7 +36,6 @@ def kruskal(graph):
 
     edges = graph['edges']
     edges.sort()
-    print(edges)
 
     for edge in edges:
         weight, v, u = edge
